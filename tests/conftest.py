@@ -6,6 +6,8 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from dotenv import load_dotenv
 
+from utils import attach
+
 
 @pytest.fixture(scope='session', autouse=True)
 def load_env():
@@ -41,5 +43,10 @@ def browser_settings():
     browser.config.window_height = 1080
 
     yield
+
+    attach.add_screenshot(browser)
+    attach.add_logs(browser)
+    attach.add_html(browser)
+    attach.add_video(browser)
 
     browser.quit()
