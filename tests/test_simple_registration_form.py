@@ -28,6 +28,7 @@ def test_simple_registration_form():
             f'{user.first_name} {user.last_name}',
             user.email,
             user.current_address,
-            user.permanent_address
+            user.permanent_address,
+            'some text'
         )
         )
